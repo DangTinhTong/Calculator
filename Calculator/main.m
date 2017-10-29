@@ -13,7 +13,7 @@
 // ----------- interface section
 @interface Calculator : NSObject
 {
-    double accumulator;
+   double accumulator;
 }
 // accumulator methods
 -(void) setAccumulator: (double) value;
@@ -24,7 +24,9 @@
 -(void) subtruct: (double) value;
 -(void) multiply: (double) value;
 -(void) divide: (double) value;
-
+-(double) chageSign; // Chang sign of accumulator
+-(double) reciprocal; // 1/Accumulator
+-(double) xSquared;   // accumulator squared
 
 @end
 
@@ -54,6 +56,20 @@
 -(void) divide:(double)value{
     accumulator/=value;
 }
+
+// Change sign of accumulator
+-(double) chageSign{
+    accumulator=-accumulator;
+    return accumulator;
+}
+-(double) reciprocal{
+    accumulator=1/accumulator;
+    return accumulator;
+}
+-(double) xSquared{
+    accumulator=accumulator*accumulator;
+    return accumulator;
+}
 @end
 
 int main(int argc, const char * argv[]) {
@@ -61,17 +77,22 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         //NSLog(@"Hello, World!");
         Calculator *myCalculator =[[Calculator alloc] init];
-        [myCalculator setAccumulator:100.0];
+        [myCalculator setAccumulator:0];
         [myCalculator add:10.0];
-       //NSLog(@"addition is %g",[myCalculator accumulator]);
+        
+       NSLog(@"addition is %g",[myCalculator accumulator]);
         [myCalculator subtruct:120.0];
         
-     //   NSLog(@"%g ", [myCalculator accumulator]);
-        [myCalculator multiply:10.0];
-        [myCalculator divide:10.0];
-        NSLog(@"The result is %g",[myCalculator accumulator]);
+        NSLog(@"%g ", [myCalculator accumulator]);
+       [myCalculator multiply:10.0];
+       [myCalculator divide:100.0];
+       NSLog(@"The result is %g",[myCalculator accumulator]);
        // [myCalculator release];
        //
+        
+       NSLog(@"Square is %g", [myCalculator xSquared ]);
+       NSLog(@"Reciprocal is %g",[myCalculator reciprocal]);
+        NSLog(@"Change sign is %g",[myCalculator chageSign]);
     }
     return 0;
 }
