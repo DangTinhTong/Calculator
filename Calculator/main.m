@@ -9,7 +9,8 @@
 
 
 #import <Foundation/Foundation.h>
-
+#import "Calculator.h"
+/*
 // ----------- interface section
 @interface Calculator : NSObject
 {
@@ -27,10 +28,11 @@
 -(double) chageSign; // Chang sign of accumulator
 -(double) reciprocal; // 1/Accumulator
 -(double) xSquared;   // accumulator squared
-
+-(double) add;
 @end
 
-
+*/
+/*
  //---------Implementation section-------------
 
 @implementation Calculator
@@ -70,8 +72,12 @@
     accumulator=accumulator*accumulator;
     return accumulator;
 }
+-(double) add{
+    accumulator+=accumulator;
+    return accumulator;
+}
 @end
-
+*/
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -83,6 +89,7 @@ int main(int argc, const char * argv[]) {
        NSLog(@"addition is %g",[myCalculator accumulator]);
         [myCalculator subtruct:120.0];
         
+        NSLog(@"Add is %g",[myCalculator add]);
         NSLog(@"%g ", [myCalculator accumulator]);
        [myCalculator multiply:10.0];
        [myCalculator divide:100.0];
@@ -93,6 +100,7 @@ int main(int argc, const char * argv[]) {
        NSLog(@"Square is %g", [myCalculator xSquared ]);
        NSLog(@"Reciprocal is %g",[myCalculator reciprocal]);
         NSLog(@"Change sign is %g",[myCalculator chageSign]);
+        NSLog(@"Add is %g",[myCalculator add]);
     }
     return 0;
 }
